@@ -19,11 +19,7 @@
 
 DOMAIN-KEYWORD,tracker
 DOMAIN-KEYWORD,test
-DOMAIN-KEYWORD,linux.do
 
-DOMAIN-SUFFIX,download.epicgames.com
-
-DOMAIN,download-cdn.jetbrains.com
 DOMAIN,ipv4_cu.itdog.cn
 DOMAIN,ipv6_cu.itdog.cn
 DOMAIN,ipv4.lvhai.org
@@ -39,6 +35,18 @@ PROCESS-NAME,EasyMonitor
 
 # CDN
 DOMAIN-SUFFIX,smtcdns.net
+
+# 下载 - 直连获得更好的下载速度
+DOMAIN-SUFFIX,download.epicgames.com
+DOMAIN,download-cdn.jetbrains.com
+DOMAIN-SUFFIX,download.nvidia.com
+DOMAIN-SUFFIX,epicgames-download1.akamaized.net
+DOMAIN-SUFFIX,download.epicgames.com
+DOMAIN-SUFFIX,fastly-download.epicgames.com
+DOMAIN-SUFFIX,epicgames.dev
+DOMAIN-SUFFIX,playstation.net
+DOMAIN-SUFFIX,dl.playstation.net
+DOMAIN-SUFFIX,gs2.ww.prod.dl.playstation.net
 
 # Steam 下载与访问分流
 ## 直连以下域名，可以使Steam地区定位到中国，使用中国CDN，提高下载速度，但可能会影响跨区
