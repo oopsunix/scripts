@@ -288,6 +288,24 @@ get_server_ip() {
     return 0
 }
 
+get_cf_ip() {
+    local type=4
+    if [[ -n "$1" ]]; then
+        type=$1
+    fi
+    if [[ -n "${currentHost}" && -z "$1" ]] && [[ "${singBoxVLESSRealityVisionServerName}" == "${currentHost}" || "${singBoxVLESSRealityGRPCServerName}" == "${currentHost}" || "${xrayVLESSRealityServerName}" == "${currentHost}" ]]; then
+        echo "${currentHost}"
+    else
+        local currentIP=
+        currentIP=$(curl -s "-${type}" http://www.cloudflare.com/cdn-cgi/trace | grep "ip" | awk -F "[=]" '{print $2}')
+        if [[ -z "${currentIP}" && -z "$1" ]]; then
+            currentIP=$(curl -s "-6" http://www.cloudflare.com/cdn-cgi/trace | grep "ip" | awk -F "[=]" '{print $2}')
+        fi
+        echo "${currentIP}"
+    fi
+
+}
+
 # 获取最新版本信息
 get_latest_version() {
     local repo="$1"
@@ -1656,6 +1674,8 @@ uninstall_all() {
     
     pause_and_continue
 }
+
+
 # =============================================================================
 # 主菜单模块
 # =============================================================================
@@ -1679,7 +1699,7 @@ main_menu() {
         echo -e "${BLUE}请选择操作:${PLAIN}"
         echo -e "  ${GREEN}1)${PLAIN} Shadowsocks 管理"
         echo -e "  ${GREEN}2)${PLAIN} ShadowTLS 管理"
-        echo -e "  ${GREEN}3)${PLAIN} 一键安装 (Shadowsocks + ShadowTLS)"
+        echo -e "  ${GREEN}3)${PLAIN} 一键安装 (Shadowsocks 2022 + ShadowTLS)"
         echo -e "  ${GREEN}4)${PLAIN} 生成客户端配置"
         echo -e "  ${GREEN}5)${PLAIN} 系统工具"
         echo -e "  ${GREEN}9)${PLAIN} 完全卸载"
