@@ -6,22 +6,25 @@
 
 ```bash
 # 从 GitHub 获取公钥并安装
-bash <(curl -fsSL git.io/key.sh) -g GitHub用户名
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -g GitHub用户名
 
 # 从 URL 获取公钥并安装
-bash <(curl -fsSL git.io/key.sh) -u https://example.com/key.pub
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -u https://example.com/key.pub
 
 # 从本地文件安装
-bash <(curl -fsSL git.io/key.sh) -f /path/to/id_rsa.pub
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -f /path/to/id_rsa.pub
+
+# 从直接传递的公钥内容字符串安装
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -r "ssh-rsa AAAAB3Nza..."
 
 # 覆盖模式（替换已有密钥）
-bash <(curl -fsSL git.io/key.sh) -o -g GitHub用户名
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -o -g GitHub用户名
 
 # 修改 SSH 端口
-bash <(curl -fsSL git.io/key.sh) -p 2222
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -p 2222
 
 # 禁用密码登录
-bash <(curl -fsSL git.io/key.sh) -d
+bash <(curl -fsSL https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh) -d
 ```
 
 ## 参数
@@ -32,6 +35,7 @@ bash <(curl -fsSL git.io/key.sh) -d
 | `-g <id>` | 从 GitHub 获取公钥，参数为 GitHub 用户名 |
 | `-u <url>` | 从 URL 获取公钥 |
 | `-f <path>` | 从本地文件获取公钥 |
+| `-r <string>` | 从直接传递的公钥内容字符串获取公钥 |
 | `-p <port>` | 修改 SSH 端口 |
 | `-d` | 禁用密码登录（PasswordAuthentication no） |
 

@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 #=============================================================
-# https://github.com/P3TERX/SSH_Key_Installer
-# Description: Install SSH keys via GitHub, URL or local files
-# Version: 2.7
-# Author: P3TERX
-# Blog: https://p3terx.com
+# https://github.com/oopsunix/scripts/raw/main/ssh-key/key.sh
+# Description: Install SSH keys via GitHub, URL or local files or raw string
+# Version: 2.8
+# Author: OopsUnix
 #=============================================================
 
-VERSION=2.7
+VERSION=2.8
 RED_FONT_PREFIX="\033[31m"
 LIGHT_GREEN_FONT_PREFIX="\033[1;32m"
 FONT_COLOR_SUFFIX="\033[0m"
@@ -27,6 +26,7 @@ Options:
   -g	Get the public key from GitHub, the arguments is the GitHub ID
   -u	Get the public key from the URL, the arguments is the URL
   -f	Get the public key from the local file, the arguments is the local file path
+  -r	Get the public key from the raw string, the arguments is the key content
   -p	Change SSH port, the arguments is port number
   -d	Disable password login"
 }
@@ -62,13 +62,22 @@ get_url_key() {
     PUB_KEY=$(curl -fsSL ${KEY_URL})
 }
 
-get_loacl_key() {
+get_local_key() {
     if [ "${KEY_PATH}" == '' ]; then
         read -e -p "Please enter the path:" KEY_PATH
         [ "${KEY_PATH}" == '' ] && echo -e "${ERROR} Invalid input." && exit 1
     fi
-    echo -e "${INFO} Get key from $(${KEY_PATH})..."
+    echo -e "${INFO} Get key from ${KEY_PATH}..."
     PUB_KEY=$(cat ${KEY_PATH})
+}
+
+get_raw_key() {
+    if [ "${KEY_RAW}" == '' ]; then
+        read -e -p "Please enter the public key content:" KEY_RAW
+        [ "${KEY_RAW}" == '' ] && echo -e "${ERROR} Invalid input." && exit 1
+    fi
+    echo -e "${INFO} Get key from raw string..."
+    PUB_KEY="${KEY_RAW}"
 }
 
 install_key() {
@@ -148,7 +157,7 @@ disable_password() {
     fi
 }
 
-while getopts "og:u:f:p:d" OPT; do
+while getopts "og:u:f:r:p:d" OPT; do
     case $OPT in
     o)
         OVERWRITE=1
@@ -165,7 +174,12 @@ while getopts "og:u:f:p:d" OPT; do
         ;;
     f)
         KEY_PATH=$OPTARG
-        get_loacl_key
+        get_local_key
+        install_key
+        ;;
+    r)
+        KEY_RAW=$OPTARG
+        get_raw_key
         install_key
         ;;
     p)
