@@ -1,13 +1,13 @@
-DOMAIN-KEYWORD,github
-DOMAIN-KEYWORD,thetvdb
-DOMAIN-KEYWORD,themoviedb
-DOMAIN-KEYWORD,tmdb
-DOMAIN-KEYWORD,huggingface
+DOMAIN,wiki.metacubex.one
+DOMAIN,apple-relay.apple.com
+DOMAIN,edgeservices.bing.com
+DOMAIN,sydney.bing.com
 
 DOMAIN-SUFFIX,ghcr.io
 DOMAIN-SUFFIX,greasyfork.org
 DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,pages.dev
+DOMAIN-SUFFIX,workers.dev
 DOMAIN-SUFFIX,vercel.app
 DOMAIN-SUFFIX,javdb.com
 DOMAIN-SUFFIX,kuromis.com
@@ -18,10 +18,11 @@ DOMAIN-SUFFIX,linux.do
 DOMAIN-SUFFIX,1111666.best
 DOMAIN-SUFFIX,imgur.com
 
-DOMAIN,wiki.metacubex.one
-DOMAIN,apple-relay.apple.com
-DOMAIN,edgeservices.bing.com
-DOMAIN,sydney.bing.com
+DOMAIN-KEYWORD,github
+DOMAIN-KEYWORD,thetvdb
+DOMAIN-KEYWORD,themoviedb
+DOMAIN-KEYWORD,tmdb
+DOMAIN-KEYWORD,huggingface
 
 # 解决国行设备 Google Play 无法正常下载的问题
 DOMAIN-SUFFIX,services.googleapis.cn
@@ -30,5 +31,6 @@ DOMAIN-SUFFIX,android.clients.google.com
 DOMAIN-SUFFIX,connectivitycheck.gstatic.com
 DOMAIN-SUFFIX,xn--ngstr-lra8j.com
 
+# Docker Hub
 DOMAIN-SUFFIX,hub.docker.com
 DOMAIN,production.cloudflare.docker.com
