@@ -5,18 +5,24 @@ DOMAIN,sydney.bing.com
 
 DOMAIN-SUFFIX,ghcr.io
 DOMAIN-SUFFIX,greasyfork.org
-DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,pages.dev
 DOMAIN-SUFFIX,workers.dev
 DOMAIN-SUFFIX,vercel.app
 DOMAIN-SUFFIX,javdb.com
 DOMAIN-SUFFIX,kuromis.com
 DOMAIN-SUFFIX,y-too.com
+DOMAIN-SUFFIX,v2ex.com
 DOMAIN-SUFFIX,hostloc.com
 DOMAIN-SUFFIX,nodeseek.com
 DOMAIN-SUFFIX,linux.do
 DOMAIN-SUFFIX,1111666.best
 DOMAIN-SUFFIX,imgur.com
+DOMAIN-SUFFIX,wallhaven.cc
+DOMAIN-SUFFIX,bandwagonhost.com
+DOMAIN-SUFFIX,zap-hosting.com
+DOMAIN-SUFFIX,themoviedb.org
+DOMAIN-SUFFIX,thetvdb.com
+DOMAIN-SUFFIX,archive.org
 
 DOMAIN-KEYWORD,github
 DOMAIN-KEYWORD,thetvdb
