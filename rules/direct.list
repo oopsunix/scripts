@@ -17,12 +17,8 @@
 # MATCH: 全匹配
 ##########################################
 
-DOMAIN-SUFFIX,llkk.cc
-DOMAIN-SUFFIX,000654.xyz
-DOMAIN-SUFFIX,edgeone.ai
+DOMAIN-SUFFIX,baidubce.com
 DOMAIN-SUFFIX,xiaomimimo.com
-DOMAIN-SUFFIX,z.ai
-
 DOMAIN-KEYWORD,tracker
 DOMAIN-KEYWORD,test
 
@@ -69,6 +65,24 @@ IP-CIDR,205.196.6.0/24,no-resolve
 IP-CIDR,208.64.200.0/22,no-resolve
 IP-CIDR,208.78.164.0/22,no-resolve
 IP-CIDR,205.185.194.0/24,no-resolve
+
+# >> 路由器 / NAS 管理域名（被 DNS 劫持到网关私网地址，走代理则无法打开管理页）
+DOMAIN-SUFFIX,tplogin.cn
+DOMAIN-SUFFIX,tplinkwifi.net
+DOMAIN-SUFFIX,falogin.cn
+DOMAIN-SUFFIX,melogin.cn
+DOMAIN-SUFFIX,miwifi.com
+DOMAIN-SUFFIX,router.asus.com
+DOMAIN-SUFFIX,asusrouter.com
+DOMAIN-SUFFIX,routerlogin.com
+DOMAIN-SUFFIX,routerlogin.net
+DOMAIN-SUFFIX,orbilogin.com
+DOMAIN-SUFFIX,linksyssmartwifi.com
+DOMAIN-SUFFIX,tendawifi.com
+DOMAIN-SUFFIX,hiwifi.com
+DOMAIN-SUFFIX,phicomm.me
+DOMAIN-SUFFIX,router.ctc
+DOMAIN,zte.home
 
 # 进程
 PROCESS-NAME,Thunder.exe
